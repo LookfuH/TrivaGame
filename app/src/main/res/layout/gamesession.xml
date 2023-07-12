@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/A1B"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="A1B"
+        android:onClick="loadResult"
+        app:layout_constraintBottom_toTopOf="@+id/A3B"
+        app:layout_constraintEnd_toStartOf="@+id/A2B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionview"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <Button
+        android:id="@+id/A3B"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="A3B"
+        android:onClick="loadResult"
+        app:layout_constraintEnd_toStartOf="@+id/A4B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/A1B" />
+
+    <Button
+        android:id="@+id/A2B"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="A2B"
+        android:onClick="loadResult"
+        app:layout_constraintBottom_toTopOf="@+id/A4B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/A1B"
+        app:layout_constraintTop_toBottomOf="@+id/questionview" />
+
+    <Button
+        android:id="@+id/A4B"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="A4B"
+        android:onClick="loadResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/A3B"
+        app:layout_constraintTop_toBottomOf="@+id/A2B" />
+
+    <TextView
+        android:id="@+id/questionview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Question view here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
