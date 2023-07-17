@@ -20,13 +20,13 @@
 
     <TextView
         android:id="@+id/titlecard"
-        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
-        android:textColor="#3c0680"
+        android:layout_marginTop="40dp"
         android:gravity="center"
-        android:text="CS 345 Quiz temp text"
+        android:text="Code name: Catfish Jr"
+        android:textColor="#3c0680"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/Credits"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
