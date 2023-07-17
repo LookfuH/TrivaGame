@@ -66,12 +66,18 @@
         android:layout_width="290dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="119dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="87dp"
         android:background="@drawable/bgquestion"
         android:gravity="center"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="119dp">
+        app:layout_constraintBottom_toTopOf="@+id/questionview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textQuestion"
