@@ -32,17 +32,26 @@
 
     <Button
         android:id="@+id/retrybutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:textColor="@color/purple_500"
-        android:text="retry?"
+
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/retrybuttonshape"
         android:onClick="loadGame"
         android:paddingBottom="10dp"
-        android:textSize="28sp"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+
+        android:shadowRadius="5"
+        android:text="Retry?"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result" />
+        app:layout_constraintTop_toBottomOf="@+id/result"
 
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
