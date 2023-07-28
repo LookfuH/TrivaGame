@@ -40,17 +40,11 @@ class MainActivity : ComponentActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.startmanu)
 
-        // Initialize views
-       // questionview = findViewById(R.id.questionview)
-
-        // Start the game
-        loadGame()
-
     }
 
     fun loadGame() {
         setContentView(R.layout.gamesession)
-        loadQuestion(questions[currentQuestionIndex])
+       // loadQuestion(questions[currentQuestionIndex])
     }
 
     fun loadQuestion(question: Question) {
@@ -102,7 +96,7 @@ class MainActivity : ComponentActivity()
     }
 
     private fun showAboutDialog() {
-        //We can change this. This toast is just for tesing.
+        //We can change this. This toast is just for testing.
         showToast("This app is developed by Jordan Hamlett and Steven Sommer.")
     }
 
