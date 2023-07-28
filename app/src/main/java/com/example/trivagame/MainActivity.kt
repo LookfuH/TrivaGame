@@ -66,12 +66,12 @@ class MainActivity : ComponentActivity()
         loadQuestion(questions[currentQuestionIndex])
     }
 
-   fun loadQuestion(question: TriviaQuestion) {
-        questionview.text = question.question
-        A1.text = question.option1
-        A2.text = question.option2
-        A3.text = question.option3
-        A4.text = question.option4
+   fun loadQuestion(question: Question) {
+        questionview.text = questions[1].text
+        A1.text = questions[1].answers[1]
+        A2.text = questions[1].answers[2]
+        A3.text = questions[1].answers[3]
+        A4.text = questions[1].answers[4]
     }
 
     fun Gameplay(v: View){
