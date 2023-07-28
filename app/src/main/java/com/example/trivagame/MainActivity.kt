@@ -19,7 +19,11 @@ class MainActivity : ComponentActivity()
 
     data class Question(
         val text: String,
-        val answers: List<String>)
+        val answers: List<String>) {
+
+    }
+
+    private val correctAns: List<Int> = listOf(1,1,1)
 
     private val questions: MutableList<Question> = mutableListOf(
         Question(text = "What is Android Jetpack?",
@@ -49,12 +53,20 @@ class MainActivity : ComponentActivity()
 
     }
 
+    // If I am understanding the code correctly it should use the list of correctAns and the location of the correct answer for the button found in gameplay() which is compared by the int provided
+    fun isCorrect(selectedAnswer: Int): Boolean {
+
+        if(correctAns[total] == selectedAnswer){
+            return true
+        }
+        return false
+    }
     fun loadGame() {
         setContentView(R.layout.gamesession)
         loadQuestion(questions[currentQuestionIndex])
     }
 
-    fun loadQuestion(question: TriviaQuestion) {
+   fun loadQuestion(question: TriviaQuestion) {
         questionview.text = question.question
         A1.text = question.option1
         A2.text = question.option2
@@ -63,7 +75,7 @@ class MainActivity : ComponentActivity()
     }
 
     fun Gameplay(v: View){
-        val selectedAnswer = when (view.id) {
+        val selectedAnswer = when (View.id) {
             R.id.A1B -> 1
             R.id.A2B -> 2
             R.id.A3B -> 3
@@ -72,7 +84,7 @@ class MainActivity : ComponentActivity()
         }
 
         val currentQuestion = questions[currentQuestionIndex]
-        if (currentQuestion.isCorrect(selectedAnswer)) {
+        if (isCorrect(selectedAnswer)) {
             correct++
         }
         total++
@@ -87,7 +99,7 @@ class MainActivity : ComponentActivity()
 
     }
 
-    fun loadResult(v: View)  {
+    fun loadResult()  {
         setContentView(R.layout.resultsmenu)
 }
 }
