@@ -1,5 +1,6 @@
 package com.example.trivagame
 
+
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -12,11 +13,12 @@ class MainActivity : ComponentActivity()
     var total: Int = 0
 
     lateinit var questionview: TextView
-    lateinit var A1: Button
-    lateinit var A2: Button
-    lateinit var A3: Button
-    lateinit var A4: Button
-
+    lateinit var A1B: Button
+    lateinit var A2B: Button
+    lateinit var A3B: Button
+    lateinit var A4B: Button
+    //find a way to import the view from gamesession
+    lateinit var GameView: View = findViewById(gameSession)
     data class Question(
         val text: String,
         val answers: List<String>) {
@@ -35,18 +37,20 @@ class MainActivity : ComponentActivity()
     )
 
     private var currentQuestionIndex = 0
+    // inits the variables might cause it to crash? might need to replace this with an actual view...
+
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.startmanu)
 
-        // Initialize views
-        questionview = findViewById(R.id.questionview)
-        A1 = findViewById(R.id.A1B)
-        A2 = findViewById(R.id.A2B)
-        A3 = findViewById(R.id.A3B)
-        A4 = findViewById(R.id.A4B)
+        //inits varaibles, might be the cause of the crashing find a way to properly import
+        questionview = GameView.findViewById(R.id.questionview)
+        A1B = GameView.findViewById(R.id.A1B)
+        A2B = GameView.findViewById(R.id.A2B)
+        A3B = GameView.findViewById(R.id.A3B)
+        A4B = GameView.findViewById(R.id.A4B)
 
         // Start the game
         loadGame()
@@ -65,16 +69,29 @@ class MainActivity : ComponentActivity()
         setContentView(R.layout.gamesession)
         loadQuestion(questions[currentQuestionIndex])
     }
+    fun ButtonOne(){
+        Gameplay(1)
+    }
+    fun ButtonTwo(){
+        Gameplay(2)
+    }
+    fun ButtonThree(){
+        Gameplay(3)
+    }
+    fun Buttonfour(){
+        Gameplay(4)
+    }
 
    fun loadQuestion(question: Question) {
         questionview.text = questions[1].text
-        A1.text = questions[1].answers[1]
-        A2.text = questions[1].answers[2]
-        A3.text = questions[1].answers[3]
-        A4.text = questions[1].answers[4]
+        A1B.text = questions[currentQuestionIndex].answers[0]
+        A2B.text = questions[currentQuestionIndex].answers[1]
+        A3B.text = questions[currentQuestionIndex].answers[2]
+        A4B.text = questions[currentQuestionIndex].answers[3]
     }
-
-    fun Gameplay(v: View){
+    //look into swapping it from a view import and make it so you pass in a int?
+    fun Gameplay(selectedAnswer: Int){
+        /*
         val selectedAnswer = when (View.id) {
             R.id.A1B -> 1
             R.id.A2B -> 2
@@ -82,7 +99,7 @@ class MainActivity : ComponentActivity()
             R.id.A4B -> 4
             else -> return
         }
-
+*/
         val currentQuestion = questions[currentQuestionIndex]
         if (isCorrect(selectedAnswer)) {
             correct++
@@ -103,3 +120,5 @@ class MainActivity : ComponentActivity()
         setContentView(R.layout.resultsmenu)
 }
 }
+
+
