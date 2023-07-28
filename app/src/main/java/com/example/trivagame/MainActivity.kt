@@ -78,7 +78,7 @@ class MainActivity : ComponentActivity()
     fun ButtonThree(){
         Gameplay(3)
     }
-    fun Buttonfour(){
+    fun ButtonFour(){
         Gameplay(4)
     }
 
