@@ -54,9 +54,24 @@ class MainActivity : ComponentActivity()
         val startButton = findViewById<Button>(R.id.startsession)
         startButton.setOnClickListener {
             setContentView(R.layout.gamesession)
+            initializeGameSessionViews()
             loadQuestion(questions[currentQuestionIndex])
-            Gameplay(questions[currentQuestionIndex])
+            Gameplay(it)
         }
+    }
+
+    private fun initializeGameSessionViews() {
+        setContentView(R.layout.gamesession)
+        questionview = findViewById(R.id.questionview)
+        A1 = findViewById(R.id.A1B)
+        A2 = findViewById(R.id.A2B)
+        A3 = findViewById(R.id.A3B)
+        A4 = findViewById(R.id.A4B)
+
+        A1.setOnClickListener { view -> Gameplay(view) }
+        A2.setOnClickListener { view -> Gameplay(view) }
+        A3.setOnClickListener { view -> Gameplay(view) }
+        A4.setOnClickListener { view -> Gameplay(view) }
     }
 
     fun loadQuestion(question: Question) {
@@ -67,20 +82,22 @@ class MainActivity : ComponentActivity()
         A4.text = question.answers[3]
     }
 
-    fun Gameplay(question: Question, selectedAnswerIndex: Int) {
+    private fun Gameplay(view: View) {
 
-        val correctAnswerIndex = question.correctAnswer
-        //val selectedAnswer = question.answers[selectedAnswerIndex]
+        val question = questions[currentQuestionIndex]
+        val correctAnswerIndex = question.correctAnswer -1
 
-        val selectedAnswer = when (view.id) {
-            R.id.A1B -> question.answers.random()
-            R.id.A2B -> question.answers.random()
-            R.id.A3B -> question.answers.random()
-            R.id.A4B -> question.answers.random()
+        val selectedAnswerIndex = when (view.id) {
+            R.id.A1B -> 0
+            R.id.A2B -> 1
+            R.id.A3B -> 2
+            R.id.A4B -> 3
             else -> return
         }
 
-        if (selectedAnswer == correctAnswerIndex) {
+        val selectedAnswer = question.answers[selectedAnswerIndex]
+
+        if (selectedAnswerIndex == correctAnswerIndex) {
             correct++
         }
         total++
