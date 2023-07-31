@@ -11,7 +11,7 @@
         android:id="@+id/A1B"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="500dp"
         android:background="@drawable/answersbuttonshape"
         android:onClick="ButtonOne"
         android:shadowColor="#A8A8A8"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toTopOf="@+id/A3B"
         app:layout_constraintEnd_toStartOf="@+id/A2B"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionview"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
     <Button
@@ -48,21 +48,21 @@
         android:id="@+id/A2B"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="500dp"
         android:background="@drawable/answersbuttonshape"
         android:onClick="ButtonTwo"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
 
+        android:shadowRadius="5"
         android:text="A2B"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/A4B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/A1B"
-        app:layout_constraintTop_toBottomOf="@+id/questionview" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/A4B"
@@ -93,6 +93,6 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.163" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

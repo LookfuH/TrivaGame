@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.startmanu)
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.know_the_answer)
         val startButton = findViewById<Button>(R.id.startsession)
         startButton.setOnClickListener {
             setContentView(R.layout.gamesession)
@@ -124,6 +124,7 @@ class MainActivity : ComponentActivity() {
     }
 
 
+
     private fun loadResult() {
         setContentView(R.layout.resultsmenu)
         Toast.makeText(this, "Your score is $correct out of $total", Toast.LENGTH_SHORT).show()
@@ -148,7 +149,7 @@ class MainActivity : ComponentActivity() {
 
             // Start of a new game
             setContentView(R.layout.startmanu)
-
+            mediaPlayer = MediaPlayer.create(this, R.raw.know_the_answer)
             val startButton = findViewById<Button>(R.id.startsession)
             startButton.setOnClickListener {
                 setContentView(R.layout.gamesession)
