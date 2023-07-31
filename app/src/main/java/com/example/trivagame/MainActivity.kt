@@ -55,6 +55,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.startmanu)
         mediaPlayer = MediaPlayer.create(this, R.raw.know_the_answer)
+        mediaPlayer.start()
         val startButton = findViewById<Button>(R.id.startsession)
         startButton.setOnClickListener {
             setContentView(R.layout.gamesession)
@@ -150,6 +151,7 @@ class MainActivity : ComponentActivity() {
             // Start of a new game
             setContentView(R.layout.startmanu)
             mediaPlayer = MediaPlayer.create(this, R.raw.know_the_answer)
+            mediaPlayer.start()
             val startButton = findViewById<Button>(R.id.startsession)
             startButton.setOnClickListener {
                 setContentView(R.layout.gamesession)
