@@ -7,36 +7,27 @@
     android:background="@drawable/background"
     android:id = "@+id/resultsmenu">
 
-    <ImageView
-        android:id="@+id/GradeIcon"
-        android:layout_width="306dp"
-        android:layout_height="308dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="70dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/unknown_collin" />
-
     <TextView
         android:id="@+id/result"
         android:layout_width="270dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="92dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="#FFF"
         android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/retrybutton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GradeIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/retrybutton"
 
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/retrybuttonshape"
         android:onClick="loadGame"
         android:paddingBottom="10dp"
@@ -49,10 +40,21 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result"
 
 
-        />
+        app:layout_constraintTop_toBottomOf="@+id/result" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="316dp"
+        android:layout_height="338dp"
+        android:src="@drawable/unknown_collin"
+        app:layout_constraintBottom_toTopOf="@+id/result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
