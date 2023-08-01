@@ -29,9 +29,8 @@ class MainActivity : ComponentActivity() {
 
     data class Question(val text: String, val answers: List<String>, val correctAnswer: Int) {}
 
-    //private val correctAns: List<Int> = listOf(1,1,1)
-
     private val questions: MutableList<Question> = mutableListOf(
+
         Question(
             text = "What is Android Jetpack?",
             answers = listOf("All of these", "Tools", "Documentation", "Libraries"),
@@ -87,6 +86,7 @@ class MainActivity : ComponentActivity() {
         A4.text = question.answers[3]
     }
 
+
     private fun Gameplay(view: View) {
 
         val question = questions[currentQuestionIndex]
@@ -99,9 +99,7 @@ class MainActivity : ComponentActivity() {
             R.id.A4B -> 3
             else -> return
         }
-
-        val selectedAnswer = question.answers[selectedAnswerIndex]
-
+        //not entering?
         if (selectedAnswerIndex == correctAnswerIndex) {
             mediaPlayer = MediaPlayer.create(this, R.raw.its_true)
             mediaPlayer.start()
@@ -123,8 +121,6 @@ class MainActivity : ComponentActivity() {
         super.onDestroy()
         mediaPlayer.release()
     }
-
-
 
     private fun loadResult() {
         setContentView(R.layout.resultsmenu)
