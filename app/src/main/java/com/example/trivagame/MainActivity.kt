@@ -127,7 +127,11 @@ class MainActivity : ComponentActivity() {
 
     private fun loadResult() {
         setContentView(R.layout.resultsmenu)
-        Toast.makeText(this, "Your score is $correct out of $total", Toast.LENGTH_SHORT).show()
+
+        // Result text view
+        val result = "Your score is $correct out of $total"
+        val textView = findViewById<TextView>(R.id.result)
+        textView.text = result
 
         mediaPlayer = MediaPlayer.create(this, R.raw.how_did_that_make_you_feel)
 
