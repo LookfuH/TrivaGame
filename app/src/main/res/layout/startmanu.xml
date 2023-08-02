@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:gravity="center"
-        android:text="Collin Knows The Answer!"
+        android:text="Collin Knows \n The Answer!"
         android:textColor="#3c0680"
-        android:textSize="22sp"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/Credits"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,43 +25,57 @@
     <Button
         android:id="@+id/startsession"
 
-        android:layout_marginTop="12dp"
-        android:text="Start"
-        android:onClick="loadGame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Credits"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-
         android:layout_width="160dp"
         android:layout_height="60dp"
         android:background="@drawable/startbuttonshape"
+        android:onClick="loadGame"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"/>
+
+        android:shadowRadius="5"
+        android:text="Start"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="501dp" />
 
     <TextView
         android:id="@+id/Credits"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="450dp"
         android:gravity="center"
         android:text="made by Jordan Hamlett and Steven Sommer"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titlecard" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="301dp"
-        android:layout_height="409dp"
+        android:layout_width="313dp"
+        android:layout_height="266dp"
         android:src="@drawable/unknown_collin"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startsession"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/titlecard" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="26dp"
+        android:text="Do You?"
+        android:textColor="#3c0680"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/startsession"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
