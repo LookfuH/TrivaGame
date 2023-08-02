@@ -4,6 +4,7 @@ package com.example.trivagame
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
@@ -78,8 +79,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.startmanu)
+
+        // .mp3 player
         mediaPlayer = MediaPlayer.create(this, R.raw.know_the_answer)
         mediaPlayer.start()
+
+        //Start Button
         val startButton = findViewById<Button>(R.id.startsession)
         startButton.setOnClickListener {
             setContentView(R.layout.gamesession)
@@ -91,19 +96,24 @@ class MainActivity : ComponentActivity() {
 
     private fun initializeGameSessionViews() {
         setContentView(R.layout.gamesession)
+
+        // Verify the layout and view IDs
         questionview = findViewById(R.id.questionview)
         A1 = findViewById(R.id.A1B)
         A2 = findViewById(R.id.A2B)
         A3 = findViewById(R.id.A3B)
         A4 = findViewById(R.id.A4B)
 
+        // Verify the click listeners
         A1.setOnClickListener { view -> Gameplay(view) }
         A2.setOnClickListener { view -> Gameplay(view) }
         A3.setOnClickListener { view -> Gameplay(view) }
         A4.setOnClickListener { view -> Gameplay(view) }
     }
 
-    fun loadQuestion(question: Question) {
+    private fun loadQuestion(question: Question) {
+
+        // Load Question and Answers
         questionview.text = question.text
         A1.text = question.answers[0]
         A2.text = question.answers[1]
@@ -111,12 +121,11 @@ class MainActivity : ComponentActivity() {
         A4.text = question.answers[3]
     }
 
-
     private fun Gameplay(view: View) {
-
         val question = questions[currentQuestionIndex]
         val correctAnswerIndex = question.correctAnswer - 1
 
+        // Assign Button to answer
         val selectedAnswerIndex = when (view.id) {
             R.id.A1B -> 0
             R.id.A2B -> 1
@@ -124,7 +133,8 @@ class MainActivity : ComponentActivity() {
             R.id.A4B -> 3
             else -> return
         }
-        //not entering?
+
+        //If answered correctly Collin says it's true and correct is added
         if (selectedAnswerIndex == correctAnswerIndex) {
             mediaPlayer = MediaPlayer.create(this, R.raw.its_true)
             mediaPlayer.start()
@@ -132,6 +142,7 @@ class MainActivity : ComponentActivity() {
         }
         total++
 
+        //If all 8 questions are answered then loadResult() will run
         if (currentQuestionIndex < questions.size - 1) {
             currentQuestionIndex++
             loadQuestion(questions[currentQuestionIndex])
@@ -164,6 +175,7 @@ class MainActivity : ComponentActivity() {
             mediaPlayer.start()
         }
 
+
         val retrybutton = findViewById<Button>(R.id.retrybutton)
         retrybutton.setOnClickListener {
             correct = 0
@@ -185,29 +197,5 @@ class MainActivity : ComponentActivity() {
                 Gameplay(it)
             }
         }
-
-
-        //For menu_startmanu.xml
-
-        //override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        //    menuInflater.inflate(R.menu.menu_startmanu, menu)
-        //     return true
-        //  }
-
-        //   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //     when (item.itemId) {
-        //        R.id.menu_about -> showAboutDialog()
-        //     }
-        //     return super.onOptionsItemSelected(item)
-        // }
-
-        // private fun showAboutDialog() {
-        //We can change this. This toast is just for testing.
-        //     showToast("This app is developed by Jordan Hamlett and Steven Sommer.")
-        // }
-
-        // private fun showToast(message: String) {
-        //    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-        // }
     }
 }
